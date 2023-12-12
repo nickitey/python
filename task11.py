@@ -22,9 +22,9 @@ ticket = int(input())
 sixth = ticket % 10
 fifth = (ticket % 100 - ticket % 10) / 10
 fourth = (ticket % 1000 - ticket % 100) / 100
-third = ticket // 1000 % 10
-second = ticket // 10000 % 100 % 10
-first = ticket // 100000
+third = (ticket % 10000 - ticket % 1000) / 1000
+second = (ticket % 100000 - ticket % 10000) / 10000
+first = (ticket % 1000000 - ticket % 100000) / 100000
 if first + second + third == fourth + fifth + sixth:
     print('Счастливый')
 else:

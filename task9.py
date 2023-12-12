@@ -28,24 +28,18 @@ c = int(input())
 if a >= b and a >= c:
     print(a)
     if b >= c:
-        print(c)
-        print(b)
+        print(c, b, sep='\n')
     else:
-        print(b)
-        print(c)
+        print(b, c, sep='\n')
 elif b >= a and b >= c:
     print(b)
     if a >= c:
-        print(c)
-        print(a)
+        print(c, a, sep='\n')
     else: 
-        print(a)
-        print(c)
+        print(a, c, sep='\n')
 elif c >= a and c >= b:
     print(c)
     if a >= b:
-        print(b)
-        print(a)
+        print(b, a, sep='\n')
     else: 
-        print(a)
-        print(b)
+        print(a, b, sep='\n')

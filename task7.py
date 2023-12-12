@@ -35,10 +35,6 @@ a = float(input())
 b = float(input())
 action = input()
 
-a = float(input())
-b = float(input())
-action = input()
-
 if action == '+':
     print(a + b)
 elif action == '-':

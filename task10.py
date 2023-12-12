@@ -39,13 +39,15 @@
 # put your python code here
 
 n = int(input())
-if n % 10 == 1:
-    if 11 <= n % 100 <= 19:
+decimal = n % 10
+centimal = n % 100
+if decimal == 1:
+    if 11 <= centimal <= 19:
         print(n, 'программистов')
     else:
         print(n, 'программист')
-elif 2 <= n % 10 <= 4:
-    if 11 <= n % 100 <= 19:
+elif 2 <= decimal <= 4:
+    if 11 <= centimal <= 19:
         print(n, 'программистов')
     else:
         print(n, 'программиста')
