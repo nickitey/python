@@ -35,6 +35,7 @@ def repeat_in_string(string: str) -> str:
         else:
             result = []
             amount = 1
+            # Старый способ - это я про вот этот слайсинг, если что
             start_index = 1
             list_interval = sub_result[start_index:start_index + 1]
             for elem in sub_result:
@@ -100,3 +101,51 @@ assert repeat_in_string('') == 'String is empty!'
 assert repeat_in_string('-1 -2 -3 -3 -3 -5 -1 2 3 45 2 45') == '-3 -1 2 45'
 
 print('All tests passed :)')
+
+
+# А потом я узнал о существовании метода списков count(), и мне едва не стало грустно от того,
+# сколько времени я потратил на поиск более извилистого пути.
+# Успокаиваю себя тем, что время, потраченное на обучение и шевеление мозгом нельзя считать потраченным.
+# Пока эта мантра не очень помогает не расстраиваться(
+
+def repeat_in_string2(string: str) -> str:
+    result = 'String is empty!'
+    sub_result = sorted([int(elem) for elem in string.split()])
+    if len(sub_result) != 0:
+        if len(sub_result) == 1:
+            result = ''
+            return result
+        else:
+            result = []
+            for item in sub_result: # Отличия от первой версии начинаются здесь. Это можно было сделать за три строки(
+                if sub_result.count(item) > 1 and item not in result:
+                    result.append(item)
+            return ' '.join([str(elem) for elem in result])
+    else:
+        return result
+
+
+assert repeat_in_string2('4 8 0 3 4 2 0 3') == '0 3 4'
+assert repeat_in_string2('10') == ''
+assert repeat_in_string2('1 1 2 2 3 3') == '1 2 3'
+assert repeat_in_string2('1 1 1 1 1 2 2 2') == '1 2'
+assert repeat_in_string2('1 1 1 1 1') == '1'
+assert repeat_in_string2('') == 'String is empty!'
+assert repeat_in_string2('-1 -2 -3 -3 -3 -5 -1 2 3 45 2 45') == '-3 -1 2 45'
+
+print('All tests passed :)')
+
+# Я же причем вспоминал JS и думал: как же здорово, что там у массивов есть метод filter(), я задачу бы решил так легко
+
+"""JS
+function repeatInString(string) {
+  let result = [];
+  const arr = string.split(' ')
+  arr.map(elem => {
+    if (arr.filter(checkedElem => checkedElem == elem).length > 1 && !result.includes(elem)) {
+      result.push(elem);
+    }
+  })
+  return result.join(' ')
+}
+"""
