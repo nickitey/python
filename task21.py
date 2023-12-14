@@ -67,7 +67,6 @@ def repeat_in_string(string: str) -> str:  # Потом я подумал и р�
         else:
             result = []
             amount = 0
-            sub_list_elem = []
             for index in range(len(sub_result)):
                 for elem in sub_result:
                     # Вариант без слайсинга:
@@ -80,12 +79,11 @@ def repeat_in_string(string: str) -> str:  # Потом я подумал и р�
                     if elem in sub_result[index:index + 1]:
                         # Соответственно проверка должна происходить в temp_list
                         amount += 1
-                    else:
-                        if amount > 1 and (sub_result[index] not in result):
-                            result.append(sub_result[index])
-                        amount = 0
                     # А в конце цикла нужно очищать временный список:
                     # del temp_list[0]
+                if amount > 1 and (sub_result[index] not in result):
+                    result.append(sub_result[index])
+                amount = 0
             return ' '.join([str(elem) for elem in result])
     else:
         return result
@@ -97,6 +95,8 @@ assert repeat_in_string('4 8 0 3 4 2 0 3') == '0 3 4'
 assert repeat_in_string('10') == ''
 assert repeat_in_string('1 1 2 2 3 3') == '1 2 3'
 assert repeat_in_string('1 1 1 1 1 2 2 2') == '1 2'
+assert repeat_in_string('1 1 1 1 1') == '1'
 assert repeat_in_string('') == 'String is empty!'
+assert repeat_in_string('-1 -2 -3 -3 -3 -5 -1 2 3 45 2 45') == '-3 -1 2 45'
 
 print('All tests passed :)')
