@@ -152,35 +152,34 @@ function repeatInString(string) {
 
 
 def get_repeated_nums(string):
+    global index
     result = 'String is empty!'
     sub_result = sorted([int(elem) for elem in string.split()])
     if len(sub_result) != 0:
-        if len(sub_result) == 1:
-            result = ''
-            return result
-        else:
-            amount = 1
-            current = sub_result[0]
-            result = []
-            for index in range(len(sub_result)):
-                if sub_result[index] == current:
-                    amount += 1
-                else:
-                    current = sub_result[index]
-                    amount = 1
-                if sub_result[index] not in result and amount > 1:
-                    result.append(sub_result[index])
-            return result
+        current = sub_result[0]
+        amount = 0
+        result = []
+        for index in range(len(sub_result)):
+            if sub_result[index] == current:
+                amount += 1
+            else:
+                if amount > 1:
+                    result.append(sub_result[index - 1])
+                current = sub_result[index]
+                amount = 1
+        if amount > 1:
+            result.append(sub_result[index])
+        return ' '.join([str(elem) for elem in result])
+
     else:
         return result
 
-
-assert repeat_in_string2('4 8 0 3 4 2 0 3') == '0 3 4'
-assert repeat_in_string2('10') == ''
-assert repeat_in_string2('1 1 2 2 3 3') == '1 2 3'
-assert repeat_in_string2('1 1 1 1 1 2 2 2') == '1 2'
-assert repeat_in_string2('1 1 1 1 1') == '1'
-assert repeat_in_string2('') == 'String is empty!'
-assert repeat_in_string2('-1 -2 -3 -3 -3 -5 -1 2 3 45 2 45') == '-3 -1 2 45'
+assert get_repeated_nums('4 8 0 3 4 2 0 3') == '0 3 4'
+assert get_repeated_nums('10') == ''
+assert get_repeated_nums('1 1 2 2 3 3') == '1 2 3'
+assert get_repeated_nums('1 1 1 1 1 2 2 2') == '1 2'
+assert get_repeated_nums('1 1 1 1 1') == '1'
+assert get_repeated_nums('') == 'String is empty!'
+assert get_repeated_nums('-1 -2 -3 -3 -3 -5 -1 2 3 45 2 45') == '-3 -1 2 45'
 
 print('All tests passed :)')

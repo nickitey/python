@@ -33,9 +33,7 @@ def sum_of_neighbours(string: str) -> str:
         else:
             subresult = []
             for index in range(len(res_list)):
-                if index == 0:
-                    subresult.append(res_list[-1] + res_list[1])
-                elif index == len(res_list) - 1:
+                if index == len(res_list) - 1:
                     subresult.append(res_list[0] + res_list[-2])
                 else:
                     subresult.append(res_list[index - 1] + res_list[index + 1])

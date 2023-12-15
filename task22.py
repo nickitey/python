@@ -18,7 +18,7 @@
 
 # put your python code here
 
-def sum_of_quads(*string: str) -> int | str:
+def sum_of_quads(*string):
     """
     Функция принимает на ввод строки с числами и накапливает их до тех пор, пока их общая сумма не станет равна 0,
     после чего возвращает сумму квадратов чисел, дающих в сумме 0. Остальные строки игнорируются.
@@ -43,13 +43,37 @@ def sum_of_quads(*string: str) -> int | str:
         return "Input is empty!"
 
 
-# print(sum_of_quads.__doc__)
-
 assert sum_of_quads('1', '-3', '5', '-6', '-10', '13', '4', '-8') == 340
 assert sum_of_quads('0') == 0
 assert sum_of_quads('0', '0', '0') == 0
 assert sum_of_quads('4', '3', '-7', '82', '-19') == 74
 assert sum_of_quads('-950', '143', '216', '-311', '513', '27', '215', '147', '231') == 1398058
 assert sum_of_quads('') == 'Input is empty!'
+
+print('All tests passed :)')
+
+num = int(input())
+arr = [num]
+summary = num
+while summary != 0:
+    num = int(input())
+    arr.append(num)
+    summary += num
+
+
+def sum_of_quads2(array):
+    result = 0
+    for unit in array:
+        result += int(unit) ** 2
+    return result
+
+
+assert sum_of_quads2(['1', '-3', '5', '-6', '-10', '13']) == 340
+print('All tests passed :)')
+assert sum_of_quads2(['0']) == 0
+assert sum_of_quads2(['0', '0', '0']) == 0
+assert sum_of_quads2(['4', '3', '-7', '82', '-19']) == 74
+assert sum_of_quads2(['-950', '143', '216', '-311', '513', '27', '215', '147', '231']) == 1398058
+assert sum_of_quads2('') == 'Input is empty!'
 
 print('All tests passed :)')
