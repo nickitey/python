@@ -17,7 +17,7 @@ def get_str_of_nums(integer):
     последовательностью целых положительных чисел, где каждое число n повторяется n раз.
     """
     result = ''
-    if integer > 0:
+    if integer > 0 and (integer // 1 == integer):
         res_list = []
         current = 1
         amount = 0
@@ -31,7 +31,7 @@ def get_str_of_nums(integer):
         result = ' '.join(str(elem) for elem in res_list)
         return result
     else:
-        return result
+       return result
 
 
 # print(get_str_of_nums.__doc__)
@@ -39,6 +39,7 @@ def get_str_of_nums(integer):
 assert get_str_of_nums(7) == '1 2 2 3 3 3 4'
 assert get_str_of_nums(0) == ''
 assert get_str_of_nums(-1) == ''
+assert get_str_of_nums(2.25) == ''
 assert get_str_of_nums(28) == '1 2 2 3 3 3 4 4 4 4 5 5 5 5 5 6 6 6 6 6 6 7 7 7 7 7 7 7'
 assert get_str_of_nums(55) == ('1 2 2 3 3 3 4 4 4 4 5 5 5 5 5 6 6 6 6 6 6 7 7 7 7 7 7 7 8 8 8 8 8 8 8 8 9 9 9 9 9 9 9 '
                                '9 9 10 10 10 10 10 10 10 10 10 10')
