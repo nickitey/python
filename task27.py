@@ -26,7 +26,7 @@ def update_dictionary(d, key, value):
     # put your python code here
     if key in d:
         d[key].append(value)
-    elif key not in d and (key * 2) in d:
+    elif (key * 2) in d:
         d[key * 2].append(value)
     else:
         d[key * 2] = [value]

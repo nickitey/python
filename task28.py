@@ -47,3 +47,27 @@ assert count_words('a aa abC aa ac abc bcd a') == {'ac': 1, 'a': 2, 'abc': 2, 'b
 assert count_words('a A a') == {'a': 3}
 
 print('All tests passed')
+
+
+def count_words(string):
+    """
+    Функция принимает строку, разбивает ее на массив слов (по пробелу), возвращает количество каждого слова в строке
+    """
+    result = {}
+    word_list = string.split(' ')
+    for word in word_list:
+        word = word.lower()
+        if word in result:
+            # лишние повторные вычисления
+            result[word] += 1
+        else:
+            result[word] = 1
+    """for word in result:              # На самом деле авторы задачи хотят от меня этого, а не возвращать весь словать
+        print(word, result.get(word))"""
+    return result
+
+
+assert count_words('a aa abC aa ac abc bcd a') == {'ac': 1, 'a': 2, 'abc': 2, 'bcd': 1, 'aa': 2}
+assert count_words('a A a') == {'a': 3}
+
+print('All tests passed')

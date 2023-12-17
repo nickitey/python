@@ -14,15 +14,13 @@
 # Функция не должна осуществлять ввод/вывод информации.
 
 def modify_list(l):
-    # put your python code here
     i = 0
     while i < len(l):
         if l[i] % 2 != 0:
             del l[i]
-            i -= 1
         else:
             l[i] = l[i] // 2
-        i += 1
+            i += 1
 
 
 lst = [1, 2, 3, 4, 5, 6]
