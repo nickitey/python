@@ -19,14 +19,12 @@ def decode_the_string(string):
     current_letter = None
     result = ''
     for symbol in string:
-        if symbol >= 'A' and not current_mul:
-            current_letter = symbol
-        elif symbol >= 'A':
+        if symbol.isnumeric():
+            current_mul += symbol
+        else:
             result += multiplicate_letter(current_letter, int(current_mul))
             current_mul = ''
             current_letter = symbol
-        else:
-            current_mul += symbol
     if current_mul:
         result += multiplicate_letter(current_letter, int(current_mul))
     return result
@@ -35,5 +33,33 @@ def decode_the_string(string):
 assert decode_the_string('a3b4c2e10b1') == 'aaabbbbcceeeeeeeeeeb'
 print('All tests passed')
 
-with open('result.txt', 'w') as res:
+'''with open('result.txt', 'w') as res:
     res.write(decode_the_string(string))
+'''
+
+"""
+def is_numeric(substring):
+    return substring.isnumeric()
+
+
+def multiplicate_letter(letter, multiplicator):
+    return letter * multiplicator
+
+
+def decode_the_string(string):
+    current_mul = ''
+    current_letter = None
+    result = ''
+    for symbol in string:
+        if not is_numeric(symbol) and not current_mul:
+            current_letter = symbol
+        elif not is_numeric(symbol):
+            result += multiplicate_letter(current_letter, int(current_mul))
+            current_mul = ''
+            current_letter = symbol
+        else:
+            current_mul += symbol        
+    if current_mul:
+        result += multiplicate_letter(current_letter, int(current_mul))
+    return result
+"""
