@@ -28,10 +28,11 @@ def get_most_popular(string):
     def count_words(word_list):  # Из таска 28
         result = {}
         for word in word_list:
-            if word.lower() in result:
-                result[word.lower()] += 1
+            word = word.lower()
+            if word in result:
+                result[word] += 1
             else:
-                result[word.lower()] = 1
+                result[word] = 1
         return result
 
     sorted_words_list = sort_words(string)
