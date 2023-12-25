@@ -31,3 +31,9 @@ assert get_n_pascal_triangle_string(4) == [1, 4, 6, 4, 1]
 print('all tests passed')
 
 
+# Благодаря функции range() функция, возвращающая факториал числа, без рекурсии пишется даже короче и легче
+def get_factorial_num(num):
+    result = 1
+    for i in range(1, num + 1):
+        result *= i
+    return result
