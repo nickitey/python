@@ -1,0 +1,5 @@
+*.pdf
+.idea
+Jupyter
+dataset_3363_3.txt
+noname.py
