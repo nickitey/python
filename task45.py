@@ -128,8 +128,7 @@ def get_namespace_name(input_list):
         if command[0] == 'create':
             namespaces[command[2]]['variables'].append(command[1])
             namespaces[command[1]] = {'variables': [],
-                                      'parent': None}
-            namespaces[command[1]]['parent'] = command[2]
+                                      'parent': command[2]}
         if command[0] == 'add':
             namespaces[command[1]]['variables'].append(command[2])
         if command[0] == 'get':
