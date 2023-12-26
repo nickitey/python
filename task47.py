@@ -39,8 +39,7 @@ class Buffer:
         self.rest = []
 
     def add(self, *a):
-        for num in a:
-            self.rest.append(num)
+        self.rest.extend(a)
         while len(self.rest) >= 5:
             res = 0
             for i in range(5):
