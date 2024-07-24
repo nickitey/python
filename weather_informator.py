@@ -34,7 +34,8 @@ def get_weather_now(city):
     return answer_template.format(city, weather_res['main']['temp'], advice)
 
 
-# city = input('Please, type the name of city: ')
-print(get_weather_now('Rostov-on-Don'))
-print(get_weather_now('Moscow'))
-print(get_weather_now('Ubud'))
+city = input('Please, type the name of city: ')
+#print(get_weather_now('Rostov-on-Don'))
+#print(get_weather_now('Moscow'))
+#print(get_weather_now('Ubud'))
+print(get_weather_now(city))
